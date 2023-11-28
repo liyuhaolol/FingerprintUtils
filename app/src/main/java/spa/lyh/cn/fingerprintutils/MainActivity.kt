@@ -10,5 +10,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
+        initView()
+    }
+
+
+    private fun initView(){
+        FingerprintVerifyManager.Builder(this)
     }
 }

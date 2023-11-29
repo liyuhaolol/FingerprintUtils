@@ -1,0 +1,4 @@
+<resources>
+    <string name="biometricprompt_verify_success">验证成功</string>
+    <string name="biometricprompt_verify_failed">验证失败</string>
+</resources>

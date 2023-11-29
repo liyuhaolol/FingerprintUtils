@@ -14,17 +14,13 @@ interface FingerprintCallback {
     /**
      * 验证成功
      */
-    fun onSucceeded()
+    fun onSucceeded(msg:String)
 
     /**
      * 验证失败
      */
-    fun onFailed()
+    fun onFailed(failString:String)
 
-    /**
-     * 密码登录
-     */
-    fun onUsepwd()
 
     /**
      * 取消验证

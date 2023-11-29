@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">指纹识别</string>
-    <string name="fingerprint_recognition">指纹识别</string>
+    <string name="fingerprint_recognition">开启指纹识别</string>
+    <string name="biometricprompt_verify_fingerprint">请验证您的指纹</string>
+    <string name="biometricprompt_cancel">取&#160;消</string>
 </resources>

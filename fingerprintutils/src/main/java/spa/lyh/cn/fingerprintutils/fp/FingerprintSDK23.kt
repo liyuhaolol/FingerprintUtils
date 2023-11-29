@@ -66,18 +66,18 @@ class FingerprintSDK23 :IFingerprint{
         }
     }
 
-    override fun canAuthenticate(context: Context, callback: FingerprintCallback?): Boolean {
+    override fun canAuthenticate(context: Context, callback: FingerprintCallback?): Int {
         //硬件是否支持指纹识别
         if (!FingerprintManagerCompat.from(context).isHardwareDetected) {
             callback?.onHwUnavailable()
-            return false
+            return IFingerprint.HW_UNAVAILABLE
         }
         //是否已添加指纹
         if (!FingerprintManagerCompat.from(context).hasEnrolledFingerprints()) {
             callback?.onNoneEnrolled()
-            return false
+            return IFingerprint.NONE_ENROLLED
         }
-        return true
+        return IFingerprint.CAN_AUTHENTICATE
     }
 
     private var context:Context? = null

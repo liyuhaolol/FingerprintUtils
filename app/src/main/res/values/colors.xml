@@ -12,4 +12,5 @@
     <color name="biometricprompt_color_333333">#333333</color>
     <color name="biometricprompt_color_82C785">#82C785</color>
     <color name="biometricprompt_color_FF5555">#FF5555</color>
+    <color name="gray">#bababa</color>
 </resources>

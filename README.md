@@ -1,3 +1,9 @@
+### jitpack.io
+
+
+`implementation 'com.github.liyuhaolol:FingerprintUtils:1.0.0'`
+
+
 ## 注意以下几个问题，避免开发出现预料外的情况
 - 1，指纹识别Api是从SDK23，Android6添加，框架已经做了SDK低版本检测判断，避免闪退。所以本框架随手写的最低版本为SDK19，Android4.4(真的还有人用这个版本为最低版本开发么？😅)。但是UI上的所有相关布局需要开发人员手动检查是否存在生物识别硬件后，再决定是否显示，比如：App是否显示支持指纹识别功能。
 - 2，虽然生物识别Api是从SDK28，Android9添加，但是相关硬件兼容判断Api到了SDK29，Android10才完善，所以本框架选择最简单最无脑的方式，就是如果启用生物识别，则仅在Android10以上的设备启用，Android9的设备仅会执行指纹识别的相关逻辑。

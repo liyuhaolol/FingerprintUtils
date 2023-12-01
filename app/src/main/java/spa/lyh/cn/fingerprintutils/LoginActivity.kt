@@ -12,6 +12,8 @@ import spa.lyh.cn.fingerprintutils.databinding.ActivityLoginBinding
 import spa.lyh.cn.fingerprintutils.dialog.FingerDialog
 import spa.lyh.cn.fingerprintutils.fp.FingerprintCallback
 import spa.lyh.cn.fingerprintutils.fp.IFingerprint
+import spa.lyh.cn.lib_utils.translucent.TranslucentUtils
+import spa.lyh.cn.lib_utils.translucent.statusbar.StatusBarFontColorControler
 
 class LoginActivity :AppCompatActivity(){
     private lateinit var b:ActivityLoginBinding
@@ -24,6 +26,7 @@ class LoginActivity :AppCompatActivity(){
         super.onCreate(savedInstanceState)
         b = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(b.root)
+        TranslucentUtils.setTranslucentBoth(window)
         b.login.setOnClickListener {
             val intent = Intent(this@LoginActivity,MainActivity::class.java)
             startActivity(intent)

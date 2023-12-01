@@ -15,6 +15,7 @@ import spa.lyh.cn.fingerprintutils.dialog.FingerDialog
 import spa.lyh.cn.fingerprintutils.fp.FingerprintCallback
 import spa.lyh.cn.fingerprintutils.fp.IFingerprint
 import spa.lyh.cn.fingerprintutils.sb.OnButtonClickListener
+import spa.lyh.cn.lib_utils.translucent.TranslucentUtils
 
 class MainActivity : AppCompatActivity() {
     private lateinit var b:ActivityMainBinding
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
+        TranslucentUtils.setTranslucentBoth(window)
         initView()
     }
 

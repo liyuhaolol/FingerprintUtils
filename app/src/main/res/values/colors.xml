@@ -13,4 +13,7 @@
     <color name="biometricprompt_color_82C785">#82C785</color>
     <color name="biometricprompt_color_FF5555">#FF5555</color>
     <color name="gray">#bababa</color>
+    <color name="black_font">#171930</color>
+    <color name="gray_font">#99171930</color>
+    <color name="blue">#266ED7</color>
 </resources>

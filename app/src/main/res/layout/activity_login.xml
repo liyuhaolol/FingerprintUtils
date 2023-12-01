@@ -1,53 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
-
-    <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="103dp"
+        android:textStyle="bold"
+        android:textSize="27sp"
+        android:textColor="@color/black_font"
+        android:text="登录\n生物识别范例"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="12sp"
+        android:textColor="@color/gray_font"
+        android:text="一个带有登录演示的生物识别项目，从登录到进入后的开启验证的一个简单的演示。"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_centerInParent="true">
-        <LinearLayout
+        android:layout_marginTop="46dp">
+        <TextView
             android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginLeft="21dp"
+            android:textSize="12sp"
+            android:text="用户名"
+            android:gravity="center_vertical"
+            android:textColor="@color/gray_font"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="用户名"
-                android:textColor="@color/black"/>
-            <EditText
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/gray"
-                android:text="user"/>
-        </LinearLayout>
-        <LinearLayout
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:elevation="6dp"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/shape_corner_8dp_white"
+                android:gravity="center_vertical">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_font"
+                    android:layout_marginLeft="21dp"
+                    android:layout_marginRight="21dp"
+                    android:background="@null"
+                    android:text="user"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView
             android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginLeft="21dp"
+            android:textSize="12sp"
+            android:layout_marginTop="18dp"
+            android:text="密码"
+            android:gravity="center_vertical"
+            android:textColor="@color/gray_font"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="密码"
-                android:textColor="@color/black"/>
-            <EditText
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/gray"
-                android:text="password"
-                android:inputType="textPassword"/>
-        </LinearLayout>
-        <Button
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:elevation="6dp"
+            app:cardCornerRadius="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/shape_corner_8dp_white"
+                android:gravity="center_vertical">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_font"
+                    android:layout_marginLeft="21dp"
+                    android:layout_marginRight="21dp"
+                    android:background="@null"
+                    android:text="password"
+                    android:inputType="textPassword"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView
             android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="82dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/shape_corner_8dp_blue"
             android:text="登录"/>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

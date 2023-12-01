@@ -3,6 +3,7 @@ package spa.lyh.cn.fingerprintutils
 import android.app.Activity
 import android.os.Build
 import spa.lyh.cn.fingerprintutils.dialog.BaseFingerDialog
+import spa.lyh.cn.fingerprintutils.fp.BiometricPromptSDK29
 import spa.lyh.cn.fingerprintutils.fp.FingerprintCallback
 import spa.lyh.cn.fingerprintutils.fp.FingerprintSDK23
 import spa.lyh.cn.fingerprintutils.fp.IFingerprint
@@ -13,8 +14,10 @@ class FingerprintVerifyManager(private val builder:Builder) {
         var iFingerprint:IFingerprint? = null
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
             //Android10
-            if (builder.enableBiometricPrompt){}else{
-                iFingerprint = FingerprintSDK23.newInstance()
+            iFingerprint = if (builder.enableBiometricPrompt){
+                BiometricPromptSDK29.newInstance()
+            }else{
+                FingerprintSDK23.newInstance()
             }
         }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             //Android6.0
@@ -36,17 +39,16 @@ class FingerprintVerifyManager(private val builder:Builder) {
     companion object{
         @JvmStatic
         fun canAuthenticate(context: Activity,enableBiometricPrompt:Boolean):Int{
-            var iFingerprint:IFingerprint
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+            var iFingerprint:IFingerprint = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
                 //Android10
                 if (enableBiometricPrompt){
-                    iFingerprint = FingerprintSDK23.newInstance()//这行没用
+                    BiometricPromptSDK29.newInstance()
                 }else{
-                    iFingerprint = FingerprintSDK23.newInstance()
+                    FingerprintSDK23.newInstance()
                 }
             }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 //Android6.0
-                iFingerprint = FingerprintSDK23.newInstance()
+                FingerprintSDK23.newInstance()
             }else{
                 //Android6.0以下
                 return IFingerprint.HW_UNAVAILABLE

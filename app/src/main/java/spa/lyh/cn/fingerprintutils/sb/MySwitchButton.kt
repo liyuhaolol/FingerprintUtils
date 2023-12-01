@@ -2,7 +2,6 @@ package spa.lyh.cn.fingerprintutils.sb
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import com.kyleduo.switchbutton.SwitchButton
 
 class MySwitchButton(context:Context, attrs: AttributeSet?, defStyle:Int) :SwitchButton(context,attrs,defStyle){
@@ -13,13 +12,14 @@ class MySwitchButton(context:Context, attrs: AttributeSet?, defStyle:Int) :Switc
 
 
     override fun performClick(): Boolean {
-        //return super.performClick()
         var canSwitch = listener?.onClick()
         if (canSwitch == null){
             canSwitch = true
         }
         if (canSwitch){
             super.performClick()
+        }else{
+            refreshDrawableState()//刷新UI，避免出现颜色错乱问题
         }
         return false
     }

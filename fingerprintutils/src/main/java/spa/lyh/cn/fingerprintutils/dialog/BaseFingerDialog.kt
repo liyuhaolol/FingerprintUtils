@@ -15,14 +15,12 @@ open class BaseFingerDialog(context: Context, themeResId:Int) :Dialog(context,th
     override fun dismiss() {
         super.dismiss()
         actionListener?.onDismiss()
-        Log.e("qwer","dismiss")
 
     }
 
     override fun cancel(){
         super.cancel()
         actionListener?.onCancel()
-        Log.e("qwer","cancel")
     }
 
     fun setActionListener(actionListener: OnDialogActionListener){

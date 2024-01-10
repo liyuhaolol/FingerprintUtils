@@ -1,7 +1,7 @@
 ### jitpack.io
 
 
-`implementation 'com.github.liyuhaolol:FingerprintUtils:1.0.0'`
+`implementation 'com.github.liyuhaolol:FingerprintUtils:1.0.2'`
 
 
 ## 注意以下几个问题，避免开发出现预料外的情况

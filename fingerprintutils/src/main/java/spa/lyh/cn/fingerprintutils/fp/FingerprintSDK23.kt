@@ -2,7 +2,9 @@ package spa.lyh.cn.fingerprintutils.fp
 
 import android.app.Activity
 import android.content.Context
+import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.hardware.fingerprint.FingerprintManagerCompat
 import androidx.core.os.CancellationSignal
@@ -33,14 +35,14 @@ class FingerprintSDK23 :IFingerprint{
     private val authenticationCallback = object :FingerprintManagerCompat.AuthenticationCallback(){
         override fun onAuthenticationError(errMsgId: Int, errString: CharSequence?) {
             super.onAuthenticationError(errMsgId, errString)
-            if (errMsgId != 5){
+            if (errMsgId != BiometricPrompt.BIOMETRIC_ERROR_CANCELED){
                 fingerprintCallback?.onFailed(errString.toString())
             }
         }
 
         override fun onAuthenticationHelp(helpMsgId: Int, helpString: CharSequence?) {
             super.onAuthenticationHelp(helpMsgId, helpString)
-            fingerprintCallback?.onFailed(helpString.toString())
+            fingerprintCallback?.onHelp(helpString.toString())
         }
 
         override fun onAuthenticationSucceeded(result: FingerprintManagerCompat.AuthenticationResult?) {

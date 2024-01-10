@@ -76,6 +76,10 @@ class LoginActivity :AppCompatActivity(){
             fingerDialog.showTip(failString,R.color.biometricprompt_color_FF5555)
         }
 
+        override fun onHelp(helpString: String) {
+
+        }
+
         override fun onCancel() {
             Toast.makeText(this@LoginActivity,"取消认证", Toast.LENGTH_SHORT).show()
         }

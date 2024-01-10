@@ -21,6 +21,11 @@ interface FingerprintCallback {
      */
     fun onFailed(failString:String)
 
+    /**
+     * 验证帮助
+     */
+    fun onHelp(helpString:String)
+
 
     /**
      * 取消验证

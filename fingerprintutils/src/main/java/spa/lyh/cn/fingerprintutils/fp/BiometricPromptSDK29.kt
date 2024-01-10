@@ -7,6 +7,8 @@ import android.hardware.biometrics.BiometricManager
 import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
 import android.os.CancellationSignal
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.annotation.RequiresApi
 import spa.lyh.cn.fingerprintutils.R
@@ -40,16 +42,18 @@ class BiometricPromptSDK29 :IFingerprint{
         object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                 super.onAuthenticationError(errorCode, errString)
-                if (errorCode != 5){
-                    fingerprintCallback?.onFailed(errString.toString())
-                }else{
-                    fingerprintCallback?.onCancel()
+                if (errorCode != BiometricPrompt.BIOMETRIC_ERROR_CANCELED){
+                    if (errorCode != BiometricPrompt.BIOMETRIC_ERROR_USER_CANCELED){
+                        fingerprintCallback?.onFailed(errString.toString())
+                    }else{
+                        fingerprintCallback?.onCancel()
+                    }
                 }
             }
 
             override fun onAuthenticationHelp(helpCode: Int, helpString: CharSequence) {
                 super.onAuthenticationHelp(helpCode, helpString)
-                fingerprintCallback?.onFailed(helpString.toString())
+                fingerprintCallback?.onHelp(helpString.toString())
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
@@ -111,6 +115,9 @@ class BiometricPromptSDK29 :IFingerprint{
             .setTitle(context.getString(R.string.biometricprompt_fingerprint_verification))
             .setNegativeButton(context.getString(R.string.biometricprompt_cancel),
                 { command: Runnable? ->
+                    Handler(Looper.getMainLooper()).post(Runnable {
+                        fingerprintCallback?.onCancel()
+                    })
                     if (!cancellationSignal!!.isCanceled){
                         cancellationSignal!!.cancel()
                     }

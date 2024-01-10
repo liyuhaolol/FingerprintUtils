@@ -37,6 +37,13 @@ class FingerprintSDK23 :IFingerprint{
             super.onAuthenticationError(errMsgId, errString)
             if (errMsgId != BiometricPrompt.BIOMETRIC_ERROR_CANCELED){
                 fingerprintCallback?.onFailed(errString.toString())
+            }else{
+                //非手动取消认证
+                if (baseFingerDialog != null){
+                    if (baseFingerDialog!!.isShowing){
+                        baseFingerDialog?.cancel()
+                    }
+                }
             }
         }
 

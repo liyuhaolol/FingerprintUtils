@@ -1,13 +1,13 @@
 ### 上传于mavencentral
 
 
+- groovy
 ```groovy
-//groovy
 implementation 'io.github.liyuhaolol:FingerprintUtils:1.0.4'
 ```
 
+- kotlin
 ```kotlin
-//kotlin
 implementation("io.github.liyuhaolol:FingerprintUtils:1.0.4")
 ```
 

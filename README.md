@@ -1,7 +1,16 @@
-### jitpack.io
+### 上传于mavencentral
 
 
-`implementation 'com.github.liyuhaolol:FingerprintUtils:1.0.2'`
+```groovy
+//groovy
+implementation 'io.github.liyuhaolol:FingerprintUtils:1.0.4'
+```
+
+```kotlin
+//kotlin
+implementation("io.github.liyuhaolol:FingerprintUtils:1.0.4")
+```
+
 
 
 ## 注意以下几个问题，避免开发出现预料外的情况
